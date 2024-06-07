@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* src/themes.css */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #6B62FF;
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+}
+[data-theme='dark'] {
+  --primary-color: #6B62FF;
+  --background-color: #001529;
+  --text-color: #ffffff;
+}
+
+body{
+  max-width: 1500px;
+  margin: auto;
+  background: #F5F5F5;
+}
+
+.th-bg-primary{
+  background-color: var(--primary-color);
+}
+
+
+/* ANT DESIGN COMPONENTS STYLE  */
+.ant-menu-horizontal >.ant-menu-item::after{
+  inset-inline: 0px;
+  border:0px !important;
+}
+
+.ant-drawer-content-wrapper{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.ant-drawer-content{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+ 
+}
+
+.ant-typography .ant-typography-expand{
+  
+}
+
+.bg-primary-2{
+  background: #ECE9FE;
+}
+
+.bg-primary-3{
+  background: #e7e6ee;
+}
+
