@@ -131,84 +131,90 @@ const Dashboard = () => {
                 key={"2"}
               >
                 <div className="h-[calc(100vh-230px)]">
-                  <Tabs tabPosition="left">
-                    <TabPane
-                      icon={<PlayCircleOutlined />}
-                      tab="Latest Workflow Runs"
-                      key={"11"}
-                    >
-                      <div className="flex justify-end w-full">
-                        <div className="grid grid-cols-12 py-2 mb-3 w-full">
-                          <div className="md:col-span-4 col-span-12">
-                            <Select
-                              showSearch
-                              filterOption={(input, options) => {
-                                return (options?.children ?? "")
-                                  .toLowerCase()
-                                  .includes(input.toLowerCase());
-                              }}
-                              className="w-full "
-                              suffixIcon={<SearchOutlined />}
-                              placeholder="Filter by repository"
-                              size="large"
-                            >
-                              {[1, 2, 34, 5, 6, 6, 6]?.map((each, ind) => (
-                                <Select.Option key={each + ind}>
-                                  {`Repo ${ind}`}
-                                </Select.Option>
-                              ))}
-                            </Select>
+                  <div className="max-768:hidden ">
+                    <Tabs tabPosition="left">
+                      <TabPane
+                        icon={<PlayCircleOutlined />}
+                        tab="Latest Workflow Runs"
+                        key={"11"}
+                      >
+                        <div className="flex justify-end w-full">
+                          <div className="grid grid-cols-12 py-2 mb-3 w-full">
+                            <div className="md:col-span-4 col-span-12">
+                              <Select
+                                showSearch
+                                filterOption={(input, options) => {
+                                  return (options?.children ?? "")
+                                    .toLowerCase()
+                                    .includes(input.toLowerCase());
+                                }}
+                                className="w-full "
+                                suffixIcon={<SearchOutlined />}
+                                placeholder="Filter by repository"
+                                size="large"
+                              >
+                                {[1, 2, 34, 5, 6, 6, 6]?.map((each, ind) => (
+                                  <Select.Option key={each + ind}>
+                                    {`Repo ${ind}`}
+                                  </Select.Option>
+                                ))}
+                              </Select>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <Table
-                        dataSource={[]}
-                        columns={[
-                          {
-                            title:
-                              "Latest workflow runs across the organization",
-                            dataIndex: "jdn",
-                            key: "jhgf",
-                            width: "50%",
-                          },
-                          {
-                            title: "Runtime Security Summary",
-                            dataIndex: "jdnn",
-                            key: "jhgf",
-                            width: "50%",
-                          },
-                        ]}
-                      />
-                    </TabPane>
-                    <TabPane
-                      icon={<BranchesOutlined />}
-                      tab="All Observed Endpoints"
-                      key={"12"}
-                    >
-                      <Empty description="No Data" />
-                    </TabPane>
-                    <TabPane
-                      icon={<SecurityScanOutlined />}
-                      tab="Policies"
-                      key={"13"}
-                    >
-                      <Empty description="No Data" />
-                    </TabPane>
-                    <TabPane
-                      icon={<EyeOutlined />}
-                      tab="Runtime Detections"
-                      key={"14"}
-                    >
-                      <Empty description="No Data" />
-                    </TabPane>
-                    <TabPane
-                      icon={<DatabaseOutlined />}
-                      tab="Cluster Status"
-                      key={"15"}
-                    >
-                      <Empty description="No Data" />
-                    </TabPane>
-                  </Tabs>
+                        <Table
+                          dataSource={[]}
+                          scroll={{ x: "max-content" }}
+                          columns={[
+                            {
+                              title:
+                                "Latest workflow runs across the organization",
+                              dataIndex: "jdn",
+                              key: "jhgf",
+                              width: "50%",
+                            },
+                            {
+                              title: "Runtime Security Summary",
+                              dataIndex: "jdnn",
+                              key: "jhgf",
+                              width: "50%",
+                            },
+                          ]}
+                        />
+                      </TabPane>
+                      <TabPane
+                        icon={<BranchesOutlined />}
+                        tab="All Observed Endpoints"
+                        key={"12"}
+                      >
+                        <Empty description="No Data" />
+                      </TabPane>
+                      <TabPane
+                        icon={<SecurityScanOutlined />}
+                        tab="Policies"
+                        key={"13"}
+                      >
+                        <Empty description="No Data" />
+                      </TabPane>
+                      <TabPane
+                        icon={<EyeOutlined />}
+                        tab="Runtime Detections"
+                        key={"14"}
+                      >
+                        <Empty description="No Data" />
+                      </TabPane>
+                      <TabPane
+                        icon={<DatabaseOutlined />}
+                        tab="Cluster Status"
+                        key={"15"}
+                      >
+                        <Empty description="No Data" />
+                      </TabPane>
+                    </Tabs>
+                  </div>
+                  <div className="min-769:hidden">
+                    <Empty description="Please open in desktop" />
+                  </div>
                 </div>
               </TabPane>
               <TabPane
@@ -277,7 +283,10 @@ const Dashboard = () => {
               </TabPane>
               <TabPane icon={<PlayCircleOutlined />} tab="Actions" key={"5"}>
                 <div className="h-[calc(100vh-230px)]">
-                  <Tabs tabPosition="left">
+                  <div className="min-769:hidden">
+                    <Empty description="Please open in desktop" />
+                  </div>
+                  <Tabs className="max-768:hidden" tabPosition="left">
                     <TabPane
                       icon={<PlayCircleOutlined />}
                       tab="Github Actions In Use"

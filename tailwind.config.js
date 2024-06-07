@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       screens: {
-        "max-900": { max: "900px" },
-        "min-901": { min: "100px" },
+        "max-768": { max: "768px" },
+        "min-769": { min: "769px" },
         "max-1200": { max: "1200px" },
         "min-1201": { min: "100px" },
       },
