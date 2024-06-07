@@ -24,6 +24,10 @@ export const themeOptions = {
       Card: {
         paddingLG: 14,
       },
+      Table: {
+        headerBg: "#C8C4FF",
+        rowHoverBg: "#F0EEFF",
+      },
       Button: {
         // borderRadius: 20,
       },
