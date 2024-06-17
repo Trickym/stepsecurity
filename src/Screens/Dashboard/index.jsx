@@ -60,6 +60,7 @@ import {
 import TabPane from "antd/es/tabs/TabPane";
 import React, { useState } from "react";
 import data from "./data";
+import ForceDirectedTree from "@/Components/ForcedDirectedTree";
 const colors = {
   Critical: "error",
   High: "volcano",
@@ -102,6 +103,23 @@ const Dashboard = () => {
       align: "center",
     },
   ];
+  const graphData = {
+    nodes: [
+      { id: "1", name: "Parent", type: "typeA", group: 1 },
+      { id: "2", name: "Child", type: "typeB", group: 1 },
+      { id: "3", name: "Child 2", type: "typeA", group: 2 },
+      { id: "4", name: "Grandchild 1", type: "typeB", group: 2 },
+      { id: "5", name: "Grandchild 2", type: "typeC", group: 3 },
+      { id: "6", name: "Child 3", type: "typeC", group: 1 },
+    ],
+    links: [
+      { source: "1", target: "2", value: 1 },
+      { source: "1", target: "3", value: 1 },
+      { source: "2", target: "4", value: 1 },
+      { source: "2", target: "5", value: 1 },
+      { source: "1", target: "6", value: 1 },
+    ],
+  };
   return (
     <React.Fragment>
       <div className="grid grid-cols-12 ">
@@ -223,7 +241,8 @@ const Dashboard = () => {
                 key={"3"}
               >
                 <div className="h-[calc(100vh-230px)] grid place-content-center">
-                  <Empty />
+                  {/* <Empty /> */}
+                  <ForceDirectedTree data={graphData} />
                 </div>
               </TabPane>
               <TabPane icon={<KeyOutlined />} tab="Action Secrets" key={"4"}>
